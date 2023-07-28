@@ -4,7 +4,7 @@ import { isLoggedIn } from "../middelwares/auth.middelware.js"
 
 
 const router = Router()
-//****************************** Registion User****************************** */
+//****************************** Registion User**********************************/
 router.post('/register', register)
 router.post('/login', login)
 router.get('/logout', logout)
