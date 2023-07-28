@@ -7,6 +7,7 @@ const cookieOptions = {
     secure:true,
 }
 
+//******************************Registreation Controller******************************** */
 const register = async (req,res,next) => {
   
        const {fullName,email,password} = req.body;
@@ -58,7 +59,7 @@ const register = async (req,res,next) => {
     };
 
       
-
+//**********************************Login Controller*********************************** */
 const login = async (req,res) => {
      
     try {
@@ -106,6 +107,7 @@ const login = async (req,res) => {
 }
 
 
+//*******************************LogOut Controller******************************** */
 
 const logout = (req,res) => {
     res.cookie('token', null, {
@@ -121,6 +123,8 @@ const logout = (req,res) => {
 
 
 }
+
+//*******************************getProfile  Controller**************************** */
 
 const getProfile = async (req,res) => {
 
