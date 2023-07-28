@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser'
 import morgan from 'morgan'
 import userRouters from './routes/user.routes.js'
 import {config} from 'dotenv'
+import errorMiddelware from './middelwares/error.middelware.js'
 config();
 
 
@@ -36,6 +37,8 @@ app.all('*' , (req,res) => {
     res.status(404).send('OPPS!! 404 page not found')
 })
 
+
+app.use(errorMiddelware);
 
 
 
