@@ -61,7 +61,7 @@ userSchema.methods = {
             {id: this._id, email:this.email, subscription:this.subscription,role:this.role},
             process.env.JWT_SECRET,
             {
-                expiresIn : "24"
+                expiresIn : '10m'
             }
         )
     },
@@ -71,9 +71,11 @@ userSchema.methods = {
     }
 }
 
+
 const User = model('User' , userSchema)
 
 
 export default User;
+
 
 

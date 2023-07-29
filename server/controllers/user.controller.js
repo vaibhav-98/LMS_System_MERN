@@ -26,11 +26,11 @@ const register = async (req,res,next) => {
          fullName,
          email,
          password,
-        //  avatar: {
-        //     public_id: email,
-        //     secure_url:"URL",
+         avatar: {
+            public_id: email,
+            secure_url:"URL",
             
-         //}
+         }
 
        });
 
@@ -60,7 +60,7 @@ const register = async (req,res,next) => {
 
       
 //**********************************Login Controller*********************************** */
-const login = async (req,res) => {
+const login = async (req,res,next) => {
      
     try {
 
@@ -75,7 +75,7 @@ const login = async (req,res) => {
         }).select('+password')
     
     
-        if(!user || !user.comparePassword(password)) {
+        if(!user || !user.comparePassowrd(password)) {
             return next (new AppError('Email or password does not match' , 400))
         }
     
@@ -95,11 +95,11 @@ const login = async (req,res) => {
         
     } catch (err) {
 
-        return next(new AppError(err.message, 500))
+        return res.status(500).send(err.message)
         
     }
 
-   
+
 
 
 
@@ -126,7 +126,7 @@ const logout = (req,res) => {
 
 //*******************************getProfile  Controller**************************** */
 
-const getProfile = async (req,res) => {
+const getProfile = async (req,res,next) => {
 
 
     try {
