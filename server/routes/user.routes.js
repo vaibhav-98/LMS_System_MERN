@@ -17,7 +17,7 @@ router.get('/me', isLoggedIn, getProfile)
 //************************************** */
 router.post('/forgot/password' , forgotPassword)
 
-//
+//*************************************************************************************/
 router.post('/reset-password', resetPassword)
 
 
